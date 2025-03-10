@@ -59,7 +59,6 @@
             , <&key_physical_attrs 100 100 1000  300       0     0     0>
             ;
     };
-};
 
 
 	default_transform: keymap_transform_0 {
