@@ -25,18 +25,6 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            /* Qwerty
- * ,----------------------------------.        ,----------------------------------.
- * |   Q  |   W  |   E  |   R  |   T  |        |   Y  |   U  |   I  |   O  |   P  |
- * |------+------+------+------+------|        |------+------+------+------+------|
- * |   A  |   S  |   D  |   F  |   G  |        |   H  |   J  |   K  |   L  |   ;  |
- * |------+------+------+------+------|        |------+------+------+------+------|
- * |   Z  |   X  |   C  |   V  |   B  |        |   N  |   M  |   ,  |   .  |   /  |
- * `-------------+------+------+------|        |------+------+------+-------------'
- *               |F_SYM |F_NUM | Space|        | Bspc |F_ARR |F_MED |
- *               `--------------------'        `--------------------'
- */
-
             bindings = <
 &kp Q           &kp W           &kp E               &kp R             &kp T    &kp Y      &kp U              &kp I                &kp O            &kp P
 &mt LEFT_WIN A  &mt LEFT_ALT S  &mt LEFT_CONTROL D  &mt LEFT_SHIFT F  &kp G    &kp H      &mt RIGHT_SHIFT J  &mt RIGHT_CONTROL K  &mt RIGHT_ALT L  &mt RIGHT_WIN SEMICOLON
@@ -48,107 +36,47 @@
         };
 
         num_layer {
-            /* Numbers
- * ,----------------------------------.        ,----------------------------------.
- * |   0  |   7  |   8  |   9  |RESET |        |  F1  |  F2  |  F3  |  F4  |  F5  |
- * |------+------+------+------+------|        |------+------+------+------+------|
- * |      |   4  |   5  |   6  |   =  |        |  F6  |  F7  |  F8  |  F9  |  F10 |
- * |------+------+------+------+------|        |------+------+------+------+------|
- * |      |   1  |   2  |   3  |   -  |        |  F11 | AF12 |      |      |      |
- * `-------------+------+------+------|        |------+------+------+-------------'
- *               |   .  |      |      |        |      |      |      |
- *               `--------------------'        `--------------------'
-*/
-
             bindings = <
-&kp N1    &kp N2          &kp N3        &kp N4           &kp N5     &kp N6   &kp N7        &kp N8  &kp N9  &kp N0
-&kp LEFT  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &none      &kp F6   &kp F7        &kp F8  &kp F9  &kp F10
-&trans    &kp N1          &kp N2        &kp N3           &kp MINUS  &kp F11  &mt RALT F12  &trans  &trans  &trans
-                          &trans        &trans           &trans     &trans   &trans        &trans
+&kp N1    &kp N2          &kp N3        &kp N4           &kp N5     &kp N6   &kp N7   &kp N8  &kp N9  &kp N0
+&kp LEFT  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &none      &none    &none    &none   &none   &none
+&none     &none           &none         &none            &none      &none    &none    &trans  &trans  &none
+                          &trans        &trans           &trans     &trans   &trans   &trans
             >;
         };
 
         sym_layer {
-            /* Symbols
- * ,----------------------------------.        ,----------------------------------.
- * |   `  |      |   _  |   +  |   \  |        |      |      |      |      |      |
- * |------+------+------+------+------|        |------+------+------+------+------|
- * |   {  |   }  |   -  |   =  |      |        |      |      |      |      |      |
- * |------+------+------+------+------|        |------+------+------+------+------|
- * |   [  |   ]  |   (  |   )  |      |        |      |      |      |      |      |
- * `-------------+------+------+------|        |------+------+------+-------------'
- *               |      |      |      |        |      |      |      |
- *               `--------------------'        `--------------------'
- */
-
             bindings = <
 &kp EXCLAMATION  &kp AT_SIGN  &kp UNDER  &kp PLUS   &kp PERCENT  &kp CARET       &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-&kp LBRC         &kp RBRC     &kp MINUS  &kp EQUAL  &trans       &kp MINUS       &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp SQT
-&kp LBKT         &kp RBKT     &kp LPAR   &kp RPAR   &trans       &kp UNDERSCORE  &kp PLUS       &trans            &trans                &kp BACKSLASH
+&none            &none        &none      &none      &none        &kp MINUS       &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp SQT
+&none            &none        &none      &none      &none        &kp UNDERSCORE  &kp PLUS       &trans            &trans                &kp BACKSLASH
                               &trans     &trans     &trans       &trans          &trans         &trans
             >;
         };
 
-        arrows_layer {
-            /* Arrows
- * ,----------------------------------.        ,----------------------------------.
- * |      |      |      |      |      |        |      |      |  Up  |      |      |
- * |------+------+------+------+------|        |------+------+------+------+------|
- * |      |      |      |      |      |        |      | Left | Down | Right|   '  |
- * |------+------+------+------+------|        |------+------+------+------+------|
- * |      |      |      |      |      |        |      |      |      |      |      |
- * `-------------+------+------+------|        |------+------+------+-------------'
- *               |      |      |      |        |      |      |      |
- *               `--------------------'        `--------------------'
- */
-
+        layer_3 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &kp UP    &trans     &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp APOS
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans     &trans
-                &trans  &trans  &trans  &trans  &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
-        media_layer {
-            /* Media
- * ,----------------------------------.        ,----------------------------------.
- * |      |      |      |      |      |        |RESET |      |      |      |      |
- * |------+------+------+------+------|        |------+------+------+------+------|
- * |      |      |      |      |      |        |BT_CLR|      |PTrack| Vol+ |NTrack|
- * |------+------+------+------+------|        |------+------+------+------+------|
- * |      |      |      |      |      |        |      |      | Prev | Vol- | Next |
- * `-------------+------+------+------|        |------+------+------+-------------'
- *               |      |      |      |        | Play | Mute |      |
- *               `--------------------'        `--------------------'
- */
-
+        layer_4 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &sys_reset  &trans      &trans        &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans      &kp C_RW    &kp C_VOL_UP  &kp C_FF
-&trans  &trans  &trans  &trans  &trans  &trans    &trans      &kp C_PREV  &kp C_VOL_DN  &kp C_NEXT
-                &trans  &trans  &trans  &kp C_PP  &kp C_MUTE  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
-        nav_layer {
-            /* Navigation
- * ,----------------------------------.        ,----------------------------------.
- * |BT_CLR| BOOT | PgUp | PgDn | Pscr |        |      |      |      |      |      |
- * |------+------+------+------+------|        |------+------+------+------+------|
- * |      |      | Home |  End | Paus |        |      |      |      |      |      |
- * |------+------+------+------+------|        |------+------+------+------+------|
- * |      |      | Ins  |  Del | Slck |        |      |      |      |      |      |
- * `-------------+------+------+------|        |------+------+------+-------------'
- *               |      |      |      |        |      |      |      |
- *               `--------------------'        `--------------------'
- */
-
+        layer_5 {
             bindings = <
-&bt BT_CLR  &bootloader  &kp PG_UP  &kp PG_DN  &kp PSCRN        &trans  &trans  &trans  &trans  &trans
-&trans      &trans       &kp HOME   &kp END    &kp PAUSE_BREAK  &trans  &trans  &trans  &trans  &trans
-&trans      &trans       &kp INS    &kp DEL    &kp SLCK         &trans  &trans  &trans  &trans  &trans
-                         &trans     &trans     &trans           &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
