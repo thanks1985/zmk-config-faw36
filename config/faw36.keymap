@@ -5,10 +5,8 @@
  */
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/backlight.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 
 #define QWERTY 0
@@ -19,7 +17,7 @@
 #define NAV 5
 
 &mt {
-    tapping-term-ms = <300>;
+    tapping-term-ms = <150>;
     flavor = "tap-preferred";
 };
 
@@ -68,10 +66,10 @@
 
         default_layer {
             bindings = <
-&kp Q  &kp W       &kp E                &kp R      &kp T        &kp Y        &kp U                    &kp I           &kp O     &kp P
-&kp A  &kp S       &kp D                &kp F      &kp G        &kp H        &kp J                    &kp K           &kp L     &kp ENTER
-&kp Z  &kp X       &kp C                &kp V      &kp B        &kp N        &kp M                    &mt LGUI COMMA  &kp DOT   &mt RSHIFT SLASH
-       &kp C_MUTE  &mt LEFT_ALT DELETE  &kp LCTRL  &lt 1 SPACE  &lt 2 SPACE  &mt RIGHT_ALT BACKSPACE  &kp RCTRL       &kp HOME
+&kp Q  &kp W       &kp E                &kp R                &kp T        &kp Y        &kp U                    &kp I           &kp O     &kp P
+&kp A  &kp S       &kp D                &kp F                &kp G        &kp H        &kp J                    &kp K           &kp L     &kp ENTER
+&kp Z  &kp X       &kp C                &kp V                &kp B        &kp N        &kp M                    &mt LGUI COMMA  &kp DOT   &mt RSHIFT SLASH
+       &kp C_MUTE  &mt LEFT_ALT DELETE  &mt LCTRL BACKSLASH  &lt 1 SPACE  &lt 2 SPACE  &mt RIGHT_ALT BACKSPACE  &kp RCTRL       &kp HOME
             >;
 
             sensor-bindings =
@@ -83,7 +81,7 @@
             bindings = <
 &kp BSPC   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp COMMA  &kp MINUS    &kp EQUAL  &kp LBKT   &kp RBKT  &kp GRAVE
 &kp TAB    &kp N4        &kp N5        &kp N6        &kp DOT    &none        &kp UP     &kp SEMI   &kp APOS  &trans
-&kp LSHFT  &kp N7        &kp N8        &kp N9        &kp N0     &kp LEFT     &kp DOWN   &kp RIGHT  &none     &kp SLASH
+&kp LSHFT  &kp N7        &kp N8        &kp N9        &kp N0     &kp LEFT     &kp DOWN   &kp RIGHT  &none     &kp CAPSLOCK
            &trans        &trans        &trans        &trans     &lt 3 ENTER  &trans     &trans     &trans
             >;
         };
@@ -92,21 +90,21 @@
             bindings = <
 &kp BSPC  &kp UP    &kp DELETE  &none      &none   &kp BACKSPACE  &kp HOME  &kp UP    &kp END    &kp PG_UP
 &kp LEFT  &kp DOWN  &kp RIGHT   &none      &none   &none          &kp LEFT  &kp DOWN  &kp RIGHT  &kp PG_DN
-&kp HOME  &kp END   &kp PG_UP   &kp PG_DN  &none   &kp DELETE     &none     &trans    &trans     &none
+&kp HOME  &kp END   &kp PG_UP   &kp PG_DN  &none   &kp DELETE     &none     &none     &none      &none
           &trans    &trans      &trans     &trans  &trans         &trans    &trans    &trans
             >;
 
             sensor-bindings =
-                <&inc_dec_kp PAGE_DOWN PAGE_UP>,
+                <&inc_dec_kp PAGE_UP PAGE_DOWN>,
                 <&inc_dec_kp END HOME>;
         };
 
         System {
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2     &out OUT_TOG    &none       &none       &trans             &trans           &soft_off
-&trans      &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &msc SCRL_UP    &bl BL_INC  &bl BL_DEC  &bl BL_CYCLE       &bl BL_SET 20    &bl BL_TOG
-&trans      &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN  &trans      &kp C_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp CAPSLOCK
-            &trans          &trans          &trans           &trans          &trans      &trans      &trans             &trans
+&kp F1  &kp F2   &kp F3   &kp F4   &none           &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2       &bt BT_CLR       &soft_off
+&kp F5  &kp F6   &kp F7   &kp F8   &msc SCRL_UP    &none         &none         &none              &none            &none
+&kp F9  &kp F10  &kp F11  &kp F12  &msc SCRL_DOWN  &none         &kp C_MUTE    &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &none
+        &trans   &trans   &trans   &trans          &trans        &trans        &trans             &trans
             >;
         };
 
