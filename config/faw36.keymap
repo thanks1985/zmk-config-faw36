@@ -18,7 +18,7 @@
 &mt {
     bindings = <&kp>, <&kp>;
 
-    tapping-term-ms = <230>;
+    tapping-term-ms = <200>;
     flavor = "balanced";
     require-prior-idle-ms = <150>;
     quick-tap-ms = <150>;
@@ -33,6 +33,25 @@
             key-positions = <0 1>;
         };
 
+        UPA {
+            bindings = <&kp UP_ARROW>;
+            key-positions = <1 2>;
+        };
+
+        LEFTA {
+            bindings = <&kp LEFT>;
+            key-positions = <10 11>;
+        };
+
+        RIGHTA {
+            bindings = <&kp RIGHT>;
+            key-positions = <11 12>;
+        };
+
+        DOWNA {
+            bindings = <&kp DOWN>;
+            key-positions = <21 22>;
+        };
 
         BS {
             bindings = <&kp BACKSPACE>;
@@ -57,7 +76,7 @@
             >;
 
             sensor-bindings =
-                <&inc_dec_kp UP_ARROW DOWN>,
+                <&inc_dec_kp DOWN_ARROW UP_ARROW>,
                 <&inc_dec_kp RIGHT LEFT>;
         };
 
@@ -69,7 +88,7 @@
            &trans        &kp ESC       &trans        &trans     &lt 3 ENTER  &trans     &trans     &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+            sensor-bindings = <&inc_dec_kp C_VOLUME_DOWN C_VOLUME_UP>;
         };
 
         Direction {
@@ -81,7 +100,7 @@
             >;
 
             sensor-bindings =
-                <&inc_dec_kp PAGE_UP PAGE_DOWN>,
+                <&inc_dec_kp PAGE_DOWN PAGE_UP>,
                 <&inc_dec_kp END HOME>;
         };
 
