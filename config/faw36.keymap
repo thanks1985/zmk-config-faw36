@@ -15,6 +15,13 @@
 #define MEDIA 4
 #define NAV 5
 
+&mt {
+    bindings = <&kp>, <&kp>;
+
+    tapping-term-ms = <150>;
+    flavor = "tap-preferred";
+};
+
 / {
     combos {
         compatible = "zmk,combos";
@@ -55,27 +62,15 @@
         };
     };
 
-    behaviors {
-        mt: mt {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MT";
-            bindings = <&none>, <&none>;
-
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <150>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
-&kp Q               &kp W       &kp E                &kp R                &kp T        &kp Y        &kp U          &kp I                    &kp O     &kp P
-&mt LEFT_CONTROL A  &kp S       &kp D                &kp F                &kp G        &kp H        &kp J          &kp K                    &kp L     &kp ENTER
-&mt LEFT_SHIFT Z    &kp X       &kp C                &kp V                &kp B        &kp N        &kp M          &mt LGUI COMMA           &kp DOT   &mt RSHIFT SLASH
-                    &kp C_MUTE  &mt LEFT_ALT DELETE  &mt LCTRL BACKSLASH  &lt 1 SPACE  &lt 2 SPACE  &kp RIGHT_ALT  &mt RCTRL BACKSPACE  &kp HOME
+&kp Q               &kp W       &kp E                &kp R             &kp T        &kp Y        &kp U          &kp I                        &kp O     &kp P
+&mt LEFT_CONTROL A  &kp S       &kp D                &kp F             &kp G        &kp H        &kp J          &kp K                        &kp L     &kp ENTER
+&mt LEFT_SHIFT Z    &kp X       &kp C                &kp V             &kp B        &kp N        &kp M          &mt LEFT_GUI COMMA           &kp DOT   &mt RIGHT_SHIFT SLASH
+                    &kp C_MUTE  &mt LEFT_ALT DELETE  &kp LEFT_CONTROL  &lt 1 SPACE  &lt 2 SPACE  &kp RIGHT_ALT  &mt RIGHT_CONTROL BACKSPACE  &kp HOME
             >;
 
             sensor-bindings =
@@ -86,7 +81,7 @@
         Num_Sym {
             bindings = <
 &kp BSPC   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp COMMA  &kp GRAVE    &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT
-&kp TAB    &kp N4        &kp N5        &kp N6        &kp DOT    &none        &kp UP     &kp SEMI   &kp APOS  &trans
+&kp TAB    &kp N4        &kp N5        &kp N6        &kp DOT    &none        &kp UP     &kp SEMI   &kp APOS  &kp BSLH
 &kp LSHFT  &kp N7        &kp N8        &kp N9        &kp N0     &kp LEFT     &kp DOWN   &kp RIGHT  &none     &kp CAPSLOCK
            &trans        &kp ESC       &trans        &trans     &lt 3 ENTER  &trans     &trans     &trans
             >;
